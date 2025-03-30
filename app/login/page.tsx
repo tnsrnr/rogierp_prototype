@@ -33,7 +33,8 @@ export default function LoginPage() {
         // 로그인 실패
         setError("아이디 또는 비밀번호가 올바르지 않습니다.");
       }
-    } catch (_) {
+    } catch {
+      // 에러 변수를 제거하여 사용하지 않는 변수 경고를 해결
       setError("로그인 중 오류가 발생했습니다. 다시 시도해주세요.");
     } finally {
       setIsLoading(false);

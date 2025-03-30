@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -149,11 +150,13 @@ export default function EmployeeDetailPage() {
         <CardContent className="p-6">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="shrink-0">
-              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-200">
-                <img 
+              <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-200 relative">
+                <Image 
                   src={employeeData.profileImage} 
-                  alt={employeeData.name} 
-                  className="w-full h-full object-cover"
+                  alt={employeeData.name}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="128px"
                 />
               </div>
             </div>
