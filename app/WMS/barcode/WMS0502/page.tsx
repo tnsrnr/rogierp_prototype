@@ -55,7 +55,7 @@ const Barcode = ({ code }: { code: string }) => (
 );
 
 // 설정 컴포넌트
-const Settings = ({ settings }: { settings: any }) => (
+const Settings = ({ settings }: { settings: Record<string, string> }) => (
   <div className="text-sm text-gray-500">
     {Object.entries(settings).map(([key, value]) => (
       <div key={key}>{`${key}: ${value}`}</div>

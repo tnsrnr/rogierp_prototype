@@ -9,7 +9,8 @@ import {
   Save,
   Plus,
   Download,
-  Printer
+  Printer,
+  ArrowRight
 } from "lucide-react";
 
 interface PickingZoneReplenishment {

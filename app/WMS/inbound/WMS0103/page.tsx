@@ -6,14 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   Search,
-  Save,
-  Plus,
-  Download,
-  Printer,
-  Package,
-  Boxes,
-  Scale,
-  Tag
+  Save
 } from "lucide-react";
 
 interface InboundItem {
