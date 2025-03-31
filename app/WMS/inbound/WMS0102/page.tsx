@@ -8,7 +8,8 @@ import {
   Plus,
   Save,
   Trash2,
-  Calendar
+  Calendar,
+  Search
 } from "lucide-react";
 
 interface InboundItem {
@@ -19,12 +20,13 @@ interface InboundItem {
   supplier: string;
   quantity: number;
   unit: string;
-  expectedDate: string;
+  inboundDate: string;
   remark?: string;
 }
 
-export default function InboundScheduledRegistrationPage() {
+export default function InboundActualRegistrationPage() {
   const [items, setItems] = useState<InboundItem[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
   
   const addNewItem = () => {
     const newItem: InboundItem = {
@@ -35,7 +37,7 @@ export default function InboundScheduledRegistrationPage() {
       supplier: "",
       quantity: 0,
       unit: "EA",
-      expectedDate: "",
+      inboundDate: new Date().toISOString().split('T')[0],
       remark: ""
     };
     setItems([...items, newItem]);
@@ -60,10 +62,15 @@ export default function InboundScheduledRegistrationPage() {
     console.log("저장할 데이터:", items);
   };
 
+  const handleSearch = () => {
+    // TODO: API 호출하여 상품 검색
+    console.log("검색어:", searchTerm);
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">입고 예정 등록</h1>
+        <h1 className="text-2xl font-bold">입고 등록</h1>
         <div className="flex gap-2">
           <Button onClick={handleSave}>
             <Save className="mr-2 h-4 w-4" />
@@ -72,11 +79,37 @@ export default function InboundScheduledRegistrationPage() {
         </div>
       </div>
 
-      {/* 입고 예정 상품 목록 */}
+      {/* 상품 검색 */}
+      <Card>
+        <CardHeader>
+          <CardTitle>상품 검색</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="품목 코드 또는 품목명으로 검색..."
+                className="pl-8"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+              />
+            </div>
+            <Button onClick={handleSearch}>
+              <Search className="mr-2 h-4 w-4" />
+              검색
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* 입고 상품 목록 */}
       <Card>
         <CardHeader>
           <div className="flex justify-between items-center">
-            <CardTitle>입고 예정 상품</CardTitle>
+            <CardTitle>입고 상품</CardTitle>
             <Button variant="outline" size="sm" onClick={addNewItem}>
               <Plus className="mr-2 h-4 w-4" />
               상품 추가
@@ -137,13 +170,13 @@ export default function InboundScheduledRegistrationPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">예정일자</label>
+                  <label className="text-sm font-medium">입고일자</label>
                   <div className="relative">
                     <Calendar className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                     <Input
                       type="date"
-                      value={item.expectedDate}
-                      onChange={(e) => updateItem(index, "expectedDate", e.target.value)}
+                      value={item.inboundDate}
+                      onChange={(e) => updateItem(index, "inboundDate", e.target.value)}
                       className="pl-8"
                     />
                   </div>
@@ -170,7 +203,7 @@ export default function InboundScheduledRegistrationPage() {
             ))}
             {items.length === 0 && (
               <div className="text-center py-8 text-muted-foreground">
-                등록된 입고 예정 상품이 없습니다.
+                등록된 입고 상품이 없습니다.
               </div>
             )}
           </div>
@@ -178,4 +211,4 @@ export default function InboundScheduledRegistrationPage() {
       </Card>
     </div>
   );
-}
+} 
