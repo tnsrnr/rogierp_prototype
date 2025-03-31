@@ -10,11 +10,10 @@ import {
   Plus,
   Download,
   Printer,
-  Layout,
-  Image,
-  Type,
-  Barcode,
-  Settings
+  Package,
+  Boxes,
+  Scale,
+  Tag
 } from "lucide-react";
 
 interface LabelTemplate {

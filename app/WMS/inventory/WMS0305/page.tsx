@@ -9,7 +9,11 @@ import {
   Save,
   Plus,
   Download,
-  Printer
+  Printer,
+  Package,
+  Boxes,
+  Scale,
+  Tag
 } from "lucide-react";
 
 interface SerialItem {

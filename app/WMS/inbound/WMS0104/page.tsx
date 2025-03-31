@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   Search,
-  MapPin,
-  Check,
-  AlertCircle
+  Save,
+  Plus,
+  Download,
+  Printer,
+  Package,
+  Boxes,
+  Scale,
+  Tag
 } from "lucide-react";
 
 interface InboundItem {
@@ -229,7 +234,7 @@ export default function InboundLocationPage() {
                               className="text-blue-600 hover:text-blue-700"
                               onClick={() => handleLocationAssign(item.id, "A-01-01")}
                             >
-                              <MapPin className="h-4 w-4" />
+                              <Search className="h-4 w-4" />
                             </Button>
                           </div>
                         )}

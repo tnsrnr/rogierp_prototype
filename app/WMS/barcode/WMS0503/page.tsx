@@ -10,11 +10,10 @@ import {
   Plus,
   Download,
   Printer,
-  Layout,
-  Type,
-  Barcode,
-  Settings,
-  FileText
+  Package,
+  Boxes,
+  Scale,
+  Tag
 } from "lucide-react";
 
 interface LabelPrintJob {

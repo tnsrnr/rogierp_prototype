@@ -10,7 +10,10 @@ import {
   Plus,
   Download,
   Printer,
-  AlertCircle
+  Package,
+  Boxes,
+  Scale,
+  Tag
 } from "lucide-react";
 
 interface LotItem {

@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   Search,
-  Check,
-  X,
-  AlertCircle
+  Save,
+  Plus,
+  Download,
+  Printer,
+  Package,
+  Boxes,
+  Scale,
+  Tag
 } from "lucide-react";
 
 interface InboundItem {
@@ -229,7 +234,7 @@ export default function InboundInspectionPage() {
                               className="text-green-600 hover:text-green-700"
                               onClick={() => handleInspection(item.id, '검수완료')}
                             >
-                              <Check className="h-4 w-4" />
+                              <Save className="h-4 w-4" />
                             </Button>
                             <Button
                               variant="outline"
@@ -237,7 +242,7 @@ export default function InboundInspectionPage() {
                               className="text-red-600 hover:text-red-700"
                               onClick={() => handleInspection(item.id, '불합격')}
                             >
-                              <X className="h-4 w-4" />
+                              <Tag className="h-4 w-4" />
                             </Button>
                           </div>
                         )}

@@ -6,9 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   Search,
-  ArrowLeft,
-  Check,
-  AlertCircle
+  Save,
+  Plus,
+  Download,
+  Printer,
+  Package,
+  Boxes,
+  Scale,
+  Tag
 } from "lucide-react";
 
 interface ReturnItem {
@@ -229,7 +234,7 @@ export default function ReturnInboundPage() {
                               className="text-green-600 hover:text-green-700"
                               onClick={() => handleInbound(item.id)}
                             >
-                              <ArrowLeft className="h-4 w-4" />
+                              <Search className="h-4 w-4" />
                             </Button>
                           </div>
                         )}
