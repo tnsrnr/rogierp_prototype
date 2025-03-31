@@ -9,9 +9,7 @@ import {
   Save,
   Plus,
   Download,
-  Printer,
-  ArrowRight,
-  AlertCircle
+  Printer
 } from "lucide-react";
 
 interface PickingZoneReplenishment {
@@ -119,12 +117,6 @@ export default function PickingZoneReplenishmentPage() {
   // 상태별 건수
   const statusCounts = replenishmentItems.reduce((acc, item) => {
     acc[item.status] = (acc[item.status] || 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
-
-  // 우선순위별 건수
-  const priorityCounts = replenishmentItems.reduce((acc, item) => {
-    acc[item.priority] = (acc[item.priority] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
 

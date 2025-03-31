@@ -9,11 +9,7 @@ import {
   Save,
   Plus,
   Download,
-  Printer,
-  Package,
-  Boxes,
-  Scale,
-  Tag
+  Printer
 } from "lucide-react";
 
 interface LabelTemplate {
@@ -42,6 +38,30 @@ interface LabelElement {
   barcodeType?: '1D' | '2D';
   barcodeFormat?: string;
 }
+
+// 바코드 레이아웃 컴포넌트
+const Layout = ({ children }: { children: React.ReactNode }) => (
+  <div className="p-4">{children}</div>
+);
+
+// 바코드 타입 컴포넌트
+const Type = ({ type }: { type: string }) => (
+  <span className="px-2 py-1 text-sm rounded bg-gray-100">{type}</span>
+);
+
+// 바코드 컴포넌트
+const Barcode = ({ code }: { code: string }) => (
+  <div className="font-mono text-lg">{code}</div>
+);
+
+// 설정 컴포넌트
+const Settings = ({ settings }: { settings: any }) => (
+  <div className="text-sm text-gray-500">
+    {Object.entries(settings).map(([key, value]) => (
+      <div key={key}>{`${key}: ${value}`}</div>
+    ))}
+  </div>
+);
 
 export default function LabelDesignPage() {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -296,20 +316,18 @@ export default function LabelDesignPage() {
                 <CardContent>
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Layout className="h-4 w-4" />
-                      <span>{template.width}mm x {template.height}mm ({template.orientation})</span>
+                      <Layout>
+                        <span>{template.width}mm x {template.height}mm ({template.orientation})</span>
+                      </Layout>
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Type className="h-4 w-4" />
-                      <span>{template.category}</span>
+                      <Type type={template.category} />
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Barcode className="h-4 w-4" />
-                      <span>{template.elements.length}개 요소</span>
+                      <Barcode code={template.elements.length.toString()} />
                     </div>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Settings className="h-4 w-4" />
-                      <span>{template.createBy} / {template.createDate}</span>
+                      <Settings settings={{ createBy: template.createBy, createDate: template.createDate }} />
                     </div>
                   </div>
                 </CardContent>

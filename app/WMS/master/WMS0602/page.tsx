@@ -9,11 +9,7 @@ import {
   Save,
   Plus,
   Download,
-  Printer,
-  Building2,
-  Phone,
-  Mail,
-  MapPin
+  Printer
 } from "lucide-react";
 
 interface VendorMaster {

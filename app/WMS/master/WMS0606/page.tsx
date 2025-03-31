@@ -9,11 +9,7 @@ import {
   Save,
   Plus,
   Download,
-  Printer,
-  Package,
-  Scale,
-  ArrowRight,
-  ArrowLeft
+  Printer
 } from "lucide-react";
 
 interface Unit {

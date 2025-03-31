@@ -9,11 +9,7 @@ import {
   Save,
   Plus,
   Download,
-  Printer,
-  Warehouse,
-  MapPin,
-  Users,
-  Phone
+  Printer
 } from "lucide-react";
 
 interface WarehouseMaster {

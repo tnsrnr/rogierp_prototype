@@ -9,10 +9,7 @@ import {
   Save,
   Plus,
   Download,
-  Printer,
-  MapPin,
-  Package,
-  Boxes
+  Printer
 } from "lucide-react";
 
 interface LocationMaster {
